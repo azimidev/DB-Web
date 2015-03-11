@@ -1,0 +1,203 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+	position   : relative;
+	min-height : 100%;
+}
+
+body {
+	margin-bottom    : 60px;
+	background-color : #F5F5DC;
+}
+
+.carousel {
+	position : relative;
+	top      : 50px;
+}
+
+.jumbotron {
+	-webkit-animation : box 10s infinite alternate;
+	-moz-animation    : box 10s infinite alternate;
+	-o-animation      : box 10s infinite alternate;
+	animation         : box 10s infinite alternate;
+}
+
+@-webkit-keyframes box {
+	0% { background-color : #FFCC66; }
+	25% { background-color : #FF9999; }
+	50% { background-color : #99CCFF; }
+	75% { background-color : #66FFCC; }
+	100% { background-color : #FFFF99; }
+}
+
+@-moz-keyframes box {
+	0% { background-color : #FFCC66; }
+	25% { background-color : #FF9999; }
+	50% { background-color : #99CCFF; }
+	75% { background-color : #66FFCC; }
+	100% { background-color : #FFFF99; }
+}
+
+@-o-keyframes box {
+	0% { background-color : #FFCC66; }
+	25% { background-color : #FF9999; }
+	50% { background-color : #99CCFF; }
+	75% { background-color : #66FFCC; }
+	100% { background-color : #FFFF99; }
+}
+
+@keyframes box {
+	0% { background-color : #FFCC66; }
+	25% { background-color : #FF9999; }
+	50% { background-color : #99CCFF; }
+	75% { background-color : #66FFCC; }
+	100% { background-color : #FFFF99; }
+}
+
+.well {
+	min-height         : 20px;
+	padding            : 19px;
+	margin-bottom      : 20px;
+	background-color   : #EBEBD2;
+	border             : 1px solid #BDBD89;
+	border-radius      : 4px;
+	-webkit-box-shadow : inset 0 1px 1px rgba(0, 0, 0, .05);
+	box-shadow         : inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.dropdown-header {
+	padding        : 8px 16px;
+	font-size      : 13px;
+	line-height    : 1.538;
+	color          : #1ABC9C;
+	text-transform : uppercase;
+}
+
+.navbar-inverse .navbar-nav > .open > .dropdown-menu > .divider {
+	height           : 2px;
+	margin-right     : -4px;
+	margin-left      : -4px;
+	background-color : #F5F5F5;
+}
+
+.footer {
+	position         : absolute;
+	bottom           : 0;
+	width            : 100%;
+	/* Set the fixed height of the footer here */
+	height           : 60px;
+	background-color : #34495E;
+	padding-right : 15px;
+	padding-left  : 15px;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+	padding : 60px 15px;
+}
+
+.container .text-muted {
+	margin : 20px 0;
+}
+
+.footer > .container {
+
+}
+
+code {
+	font-size : 80%;
+}
+
+.sidebar {
+	border-left : 1px dotted #BDBD89;
+}
+
+.sidebar p {
+	font-family : "Arial Narrow";
+	font-size   : 80%;
+}
+
+.sidebar h3 {
+	border-bottom : 1px solid #BDBD89;
+}
+
+textarea { resize : vertical; }
+
+.dropdown-menu > li { position : relative;
+	-webkit-user-select          : none; /* Chrome/Safari */
+	-moz-user-select             : none; /* Firefox */
+	-ms-user-select              : none; /* IE10+ */
+	/* Rules below not implemented in browsers yet */
+	-o-user-select               : none;
+	user-select                  : none;
+	cursor                       : pointer;
+}
+
+.dropdown-menu .sub-menu {
+	left                      : 100%;
+	position                  : absolute;
+	top                       : 0;
+	display                   : none;
+	margin-top                : -1px;
+	border-top-left-radius    : 0;
+	border-bottom-left-radius : 0;
+	border-left-color         : #FFF;
+	box-shadow                : none;
+}
+
+.right-caret:after, .left-caret:after {
+	content        : "";
+	border-bottom  : 5px solid transparent;
+	border-top     : 5px solid transparent;
+	display        : inline-block;
+	height         : 0;
+	vertical-align : middle;
+	width          : 0;
+	margin-left    : 5px;
+}
+
+.right-caret:after { border-left : 5px solid #FFAF46; float : right; margin-top : 5px; }
+
+.left-caret:after { border-right : 5px solid #FFAF46; float : right; margin-top : 5px; }
+
+.dropdown-menu > li > a {
+	padding          : 8px 16px;
+	line-height      : 1.429;
+	color            : #FFF;
+	background-color : #34495E;
+}
+
+.dropdown-menu > li {
+	border-radius : 3px;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+	color            : #FFF;
+	background-color : #1ABC9C;
+}
+
+.selected {
+	font-weight : 900;
+}
+
+ul, li {
+	line-height : 20px;
+	font-size   : 15px;
+}
+
+ul > li > ul > li {
+	font-style : italic;
+}
+.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	width: 100%;
+}
+
+p{
+	font-family: "Arial Narrow", Georgia, "Times New Roman", Times, serif;
+}
