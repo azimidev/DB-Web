@@ -19,7 +19,7 @@ if(isset($_POST['submit'])) {
 		$post_code = mysql_prep(trim($_POST["post_code"]));
 		$phone     = mysql_prep(trim($_POST["phone"]));
 		$query     = "INSERT INTO Customers (
-					  username, password, customer_name, street, email, town, post_code, phone_number
+					  username, password, customer_name, email, street, town, post_code, phone_number
 					  ) VALUES (
 					  '{$username}', '{$password}', '{$full_name}','{$email}', '{$street}', '{$town}', '{$post_code}', '{$phone}')";
 		$result    = mysqli_query($connection, $query);
