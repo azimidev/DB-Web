@@ -76,6 +76,12 @@
 						</div>
 					</div>
 					<div class="form-group">
+						<label for="email" class="col-lg-2 control-label">Email*</label>
+						<div class="col-lg-10">
+							<input type="text" name="email" class="form-control" id="email" placeholder="Email" required>
+						</div>
+					</div>
+					<div class="form-group">
 						<label for="street" class="col-lg-2 control-label">Street</label>
 						<div class="col-lg-10">
 							<input type="text" name="street" class="form-control" id="street" placeholder="Street">

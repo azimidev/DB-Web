@@ -13,14 +13,15 @@ if(isset($_POST['submit'])) {
 		$username  = mysql_prep(trim($_POST["username"]));
 		$password  = password_encrypt($_POST["password"]);
 		$full_name = mysql_prep(trim($_POST["full_name"]));
+		$email 	   = mysql_prep(trim($_POST["email"]));
 		$street    = mysql_prep(trim($_POST["street"]));
 		$town      = mysql_prep(trim($_POST["town"]));
 		$post_code = mysql_prep(trim($_POST["post_code"]));
 		$phone     = mysql_prep(trim($_POST["phone"]));
 		$query     = "INSERT INTO Customers (
-					  username, password, customer_name, street, town, post_code, phone_number
+					  username, password, customer_name, street, email, town, post_code, phone_number
 					  ) VALUES (
-					  '{$username}', '{$password}', '{$full_name}', '{$street}', '{$town}', '{$post_code}', '{$phone}')";
+					  '{$username}', '{$password}', '{$full_name}','{$email}', '{$street}', '{$town}', '{$post_code}', '{$phone}')";
 		$result    = mysqli_query($connection, $query);
 		if($result) {
 			$_SESSION["message"] = "Registration compelete!";
