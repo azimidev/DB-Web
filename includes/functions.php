@@ -139,7 +139,8 @@ function find_cart_by_customer_id($customer_id) {
 function search_production($search = "") {
 	global $connection;
 	$safe_search = mysqli_real_escape_string($connection, $search);
-	$query       = "SELECT * FROM Production WHERE production_name LIKE '%{$safe_search}%'";
+	$query       = "SELECT * FROM Production WHERE
+					production_name LIKE '%{$safe_search}%'";
 	$search_set  = mysqli_query($connection, $query);
 	confirm_query($search_set);
 	return $search_set;
@@ -387,12 +388,10 @@ function signed_in() {
 function confirm_signed_in() {
 	if(!signed_in()) {
 		//$_SESSION["errors"] = "You do not have any account. You need to create an account!";
-		redirect_to("../../public/register.php");
-		if(isset($_SERVER["HTTP_REFERER"])) {
-			redirect_to($_SERVER["HTTP_REFERER"]);
-		} else {
-			redirect_to("../../public/index.php");
+		if(isset($_SESSION["cart"])) {
+			redirect_to("../../public/register.php");
 		}
+		refresh("index.php");
 	}
 }
 
@@ -453,7 +452,8 @@ function public_navigation($production_array, $performance_array) {
 function find_performance(array $cart) {
 	global $connection;
 	$whereIn         = implode(", ", $cart);
-	$query           = "SELECT * FROM Performance WHERE performance_id IN ({$whereIn})";
+	$query           = "SELECT * FROM Performance
+						WHERE performance_id IN ({$whereIn})";
 	$performance_set = mysqli_query($connection, $query);
 	confirm_query($performance_set);
 	return $performance_set;

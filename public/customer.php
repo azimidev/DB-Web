@@ -1,7 +1,7 @@
 <?php require_once("../includes/session.php"); ?>
 <?php require_once("../includes/db_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
-<?php confirm_signed_in() ?>
+<?php confirm_signed_in(); ?>
 <?php $cart_set = find_cart_for_customer($_SESSION["customer_id"]); ?>
 <?php $booking_set = find_booking_for_customer($_SESSION["customer_id"]); ?>
 <?php include("../includes/layouts/header.php"); ?>

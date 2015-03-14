@@ -1,8 +1,4 @@
 <?php
-
-/**
- * Session starts at the beginning
- */
 session_start();
 // Store messages into the session
 function message() {

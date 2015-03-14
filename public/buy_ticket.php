@@ -13,8 +13,12 @@ $booking        = find_booking_by_id($booking_id);
 $performance    = find_performance_by_id($performance_id);
 $seat_set       = find_all_seats();
 if(!$member || !$booking_id || !$performance_id) {
-	redirect_to($_SERVER["HTTP_REFERER"]);
 	$_SESSION["errors"] = "Something went wrong fining booking or performance for this booking!";
+	redirect_to($_SERVER["HTTP_REFERER"]);
+}
+if($booking["purchased"]) {
+	$_SESSION["errors"] = "Booking ticket is purchased already and cannot be modified!";
+	redirect_to("customer_bookings.php");
 }
 \Stripe\Stripe::setApiKey('sk_test_4VsTZFhhh6wpCIWulEVQTqXp');
 if(isset($_POST['stripeToken'])) {
@@ -126,9 +130,7 @@ if(isset($_POST['stripeToken'])) {
 								<?php endwhile; ?>
 							</select>
 						</div>
-						<!--<button type="submit" name="submit" data-toggle="modal" data-target="#myModal" class="btn btn-primary">-->
-						<!--	Pay Now-->
-						<!--</button>-->
+						<a class="btn btn-danger btn-sm" href="customer_bookings.php">Cancel</a>
 						<script
 							src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 							data-key="pk_test_4VsTjgOsN0s7xNKrpJrTUHx9"

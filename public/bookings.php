@@ -35,9 +35,6 @@ if(isset($_POST["clear"])) {
 				<li class="active"><a href="bookings.php">Bookings</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
-			<!--<ul class="nav navbar-nav pull-right">-->
-			<!--	<li><a href="../includes/layouts/clear_seat_status.php">Clear Sear Status</a></li>-->
-			<!--</ul>-->
 		</div>
 	</section>
 </nav>
@@ -56,25 +53,33 @@ if(isset($_POST["clear"])) {
 						<th>Performance Name</th>
 						<th>Booking Date</th>
 						<th>Status</th>
+						<th>Purchased</th>
 					</tr>
 					</thead>
 					<tbody>
 					<?php while($booking = mysqli_fetch_assoc($booking_set)): ?>
 						<tr>
-							<td><?php echo htmlentities($booking["booking_id"]); ?></td>
-							<td><?php echo htmlentities(find_member_by_id($booking["customer_id"])["customer_name"]); ?></td>
-							<td><?php echo htmlentities(find_performance_by_id($booking["performance_id"])["performance_name"]); ?></td>
-							<td><?php echo datetime_to_text(htmlentities($booking["booking_date"])); ?></td>
+							<td><p><?php echo htmlentities($booking["booking_id"]); ?></p></td>
+							<td><p><?php echo htmlentities(find_member_by_id($booking["customer_id"])["customer_name"]); ?></p></td>
+							<td><p><?php echo htmlentities(find_performance_by_id($booking["performance_id"])["performance_name"]); ?></p></td>
+							<td><p><?php echo datetime_to_text(htmlentities($booking["booking_date"])); ?></p></td>
 							<td><?php if($booking["status"]): ?>
-									<a href="approvals.php?id=<?php echo urldecode($booking["booking_id"]); ?>" class='btn btn-success btn-xs'>
-										Approved
-									</a>
+									<?php if($booking["purchased"]){ ?>
+										<a href="#" class='btn btn-success btn-xs' disabled>
+											Approved
+										</a>
+									<?php } else { ?>
+										<a href="approvals.php?id=<?php echo urldecode($booking["booking_id"]); ?>" class='btn btn-success btn-xs'>
+											Approved
+										</a>
+									<?php } ?>
 								<?php else: ?>
 									<a href="approvals.php?id=<?php echo urldecode($booking["booking_id"]); ?>" class='btn btn-danger btn-xs'>
 										Needs Approval
 									</a>
 								<?php endif; ?>
 							</td>
+							<td><?php if($booking["purchased"]) {echo "<p class='text-success'>Yes</p>";} else {echo "<p class='text-danger'>No</p>";} ?></td>
 						</tr>
 					<?php endwhile; ?>
 					</tbody>
