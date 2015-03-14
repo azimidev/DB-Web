@@ -87,11 +87,23 @@ if(isset($_POST["clear"])) {
 			</section>
 		</div>
 		<hr/>
-		<form method="post" action="bookings.php">
-			<button class="btn btn-default" name="clear" type="submit" onclick="return confirm('Are you sure?')">Clear
-			                                                                                                     History
-			</button>
-		</form>
+		<div class="pull-right panel panel-default">
+			<div class="panel-body">
+				<p class="text-danger" style="line-height: 20px;">
+					Important Reminder: <br/>
+					<small style="line-height: 20px;">
+						Please use this button to clear the history after the performance is finished. <br/>
+						Using this button will clear the all bookings customer made. <br/>
+						Make sure you do this after all of your considerations.
+					</small>
+				</p>
+				<form method="post" action="bookings.php">
+					<button class="btn btn-danger pull-right" name="clear" type="submit" onclick="return confirm('Are you sure?')">Clear
+					                                                                                                               History
+					</button>
+				</form>
+			</div>
+		</div>
 	<?php else: ?>
 		<h2>No Booking Yet</h2>
 	<?php endif; ?>
