@@ -98,11 +98,7 @@ if(isset($_POST["clear"])) {
 							</blockquote>
 						</div>
 						<div class="col-lg-4">
-							<h5>Register Today</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis deserunt minima quaerat
-							   repellendus. Accusamus asperiores ea error fugit minus, obcaecati quibusdam repellat?
-							   Adipisci eaque,eos ex pariatur sittempora vitae.</p>
-							<a class="btn btn-lg btn-danger" href="register.php">Register Today</a>
+							<h1 style="font-size:150px;" class="pull-right glyphicon glyphicon-shopping-cart"></h1>
 						</div>
 					</div>
 				<?php endif; ?>
