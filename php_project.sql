@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 11, 2015 at 04:06 PM
+-- Generation Time: Mar 19, 2015 at 06:49 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.6
 
@@ -33,7 +33,17 @@ CREATE TABLE IF NOT EXISTS `Booking` (
   `booking_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` tinyint(1) NOT NULL DEFAULT '0',
   `purchased` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Booking`
+--
+
+INSERT INTO `Booking` (`booking_id`, `customer_id`, `performance_id`, `booking_date`, `status`, `purchased`) VALUES
+(33, 10, 5, '2015-03-12 16:22:06', 1, 1),
+(34, 10, 7, '2015-03-12 16:22:10', 1, 1),
+(35, 10, 3, '2015-03-14 18:14:54', 1, 0),
+(36, 10, 13, '2015-03-14 18:15:28', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -70,8 +80,8 @@ CREATE TABLE IF NOT EXISTS `Customers` (
 --
 
 INSERT INTO `Customers` (`customer_id`, `username`, `password`, `customer_name`, `email`, `street`, `town`, `post_code`, `phone_number`) VALUES
-(10, 'paul', '$2y$10$NDRkNDZhM2Q0MjAxZjg5NuzN3XEoMx21zDLdNhaOGZ/n8DRc9.Z8G', 'Prof Paul', 'Persian.Loyal@yahoo.com', '24 HAZLITT ROAD', 'W14 0JY', '', '+447912531996'),
-(11, 'amir', '$2y$10$ZjBhYTQyYjUzNGQyNWYyZ.7vuO.Z9FTaZFM09KIZzNnGEUKzVnid6', 'HASSAN AZIMI', '24 HAZLITT ROAD', 'Persian.Loyal@yahoo.com', 'W14 0JY', '', '+447912531996');
+(10, 'paul', '$2y$10$NDRkNDZhM2Q0MjAxZjg5NuzN3XEoMx21zDLdNhaOGZ/n8DRc9.Z8G', 'Prof Paul', 'p.neve@kingston.ac.uk', '12 Kingston Road', 'Kingston', 'K12 0JY', '+447907630288'),
+(11, 'amir', '$2y$10$ZjBhYTQyYjUzNGQyNWYyZ.7vuO.Z9FTaZFM09KIZzNnGEUKzVnid6', 'HASSAN AZIMI', 'Persian.Loyal@yahoo.com', '10 Wrights Lane', 'London', 'W8 6TA', '+447912531996');
 
 -- --------------------------------------------------------
 
@@ -84,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `Performance` (
   `production_id` int(11) NOT NULL,
   `performance_name` varchar(50) NOT NULL,
   `details` text CHARACTER SET utf8 COLLATE utf8_unicode_ci
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Performance`
@@ -104,7 +114,8 @@ INSERT INTO `Performance` (`performance_id`, `production_id`, `performance_name`
 (12, 12, 'Out of the Fringe', 'Monday to Friday\r\n20:00 - 22:00\r\n\r\n\r\nThere is a new generation of Latina/o dramatists afoot. According to Caridad Svich, editor of Out of the Fringe: Contemporary Latina/Latino Theatre and Performance, "There is a wave of dramatists, storytellers and poets, creating work intensely personal and idiosyncratic, eerie and lyrical, metaphysical and emotive. Flourishing within the margins of an already marginalized theatrical environment, they align themselves with resurgent poetry and the spoken-word movement, with alternative music and literature scenes; their work is bred on the economics of poetry and the nurturing of their work outside official venues."'),
 (13, 13, 'WWII', 'Monday to Friday\r\n20:00 - 23:00\r\n\r\nDuring World War II, CEMA (Council for the Encouragement of Music and the Arts) was set up to provide entertainment for the civilian and military population, often in community or church halls or in makeshift theatres in camps. This initiative, and subsequent interest in the arts as a whole, led to the formation of the Arts Council in 1946 which enabled public money to be used to support theatre in the regions, including the construction of new theatres. The Belgrade in Coventry was the first purpose-built theatre after the war.'),
 (15, 1, 'Woman in Black First', 'Monday to Friday\r\n16:00 - 18:00\r\n\r\nA young lawyer travels to a remote village where he discovers the vengeful ghost of a scorned woman is terrorizing the locals.\r\n\r\nDirector: James Watkins\r\nWriters: Susan Hill (novel), Jane Goldman (screenplay)\r\nStars: Daniel Radcliffe, Janet McTeer, CiarÃ¡n Hinds | See full cast and crew Â»'),
-(16, 1, 'Harry Potter', 'Harry ....');
+(16, 1, 'Harry Potter', 'Harry ....'),
+(17, 14, 'name 2', 'lorem ipsum');
 
 -- --------------------------------------------------------
 
@@ -116,14 +127,14 @@ CREATE TABLE IF NOT EXISTS `Production` (
 `production_id` int(11) NOT NULL,
   `production_name` varchar(50) NOT NULL,
   `production_type` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Production`
 --
 
 INSERT INTO `Production` (`production_id`, `production_name`, `production_type`) VALUES
-(1, 'British Productions', 'Action'),
+(1, 'British', 'Action'),
 (2, 'French', 'Musical'),
 (3, 'American', 'Musical'),
 (4, 'Middle Eastern', 'Musical'),
@@ -135,7 +146,8 @@ INSERT INTO `Production` (`production_id`, `production_name`, `production_type`)
 (10, 'Indian', 'Musical'),
 (11, 'Japanese', 'Musical'),
 (12, 'Latina', 'Musical'),
-(13, 'German', 'Comedy');
+(13, 'German', 'Comedy'),
+(14, 'A name', 'comedy');
 
 -- --------------------------------------------------------
 
@@ -174,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `Ticket` (
   `performance_id` int(11) DEFAULT NULL,
   `seat_id` int(11) DEFAULT NULL,
   `booking_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1041 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1043 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Ticket`
@@ -200,7 +212,9 @@ INSERT INTO `Ticket` (`ticket_id`, `performance_id`, `seat_id`, `booking_id`) VA
 (1037, 7, 4, NULL),
 (1038, 4, 5, NULL),
 (1039, 9, 4, NULL),
-(1040, 2, 4, NULL);
+(1040, 2, 4, NULL),
+(1041, 5, 3, 33),
+(1042, 7, 2, 34);
 
 --
 -- Indexes for dumped tables
@@ -256,7 +270,7 @@ ALTER TABLE `Ticket`
 -- AUTO_INCREMENT for table `Booking`
 --
 ALTER TABLE `Booking`
-MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
+MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `Cart`
 --
@@ -271,12 +285,12 @@ MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 -- AUTO_INCREMENT for table `Performance`
 --
 ALTER TABLE `Performance`
-MODIFY `performance_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY `performance_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `Production`
 --
 ALTER TABLE `Production`
-MODIFY `production_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+MODIFY `production_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `Seat`
 --
@@ -286,7 +300,7 @@ MODIFY `seat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `Ticket`
 --
 ALTER TABLE `Ticket`
-MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1041;
+MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1043;
 --
 -- Constraints for dumped tables
 --
