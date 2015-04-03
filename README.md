@@ -1,5 +1,5 @@
 # DB-Web
-Advanced Database &amp; the Web Project built by Amir Hassan Azimi
+Advanced Database &amp; the Web Project built by Hassan Azimi
 
 # What does this app do?
 This application is an advanced theatre booking system for public and registered members, a CMS, a payment gateway handler, at ticket issuing system and many more ...
